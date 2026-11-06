@@ -1,28 +1,93 @@
+
 {% extends "bas.html" %}
 
-{% block titel %}Välj stad | Väderkollen{% endblock %}
+{% block titel %}Startsida | Väderkollen{% endblock %}
 
 {% block innehåll %}
 
-<section class="kort">
-    <h2>Välkommen till Väderkollen</h2>
+<div class="row justify-content-center">
+    <div class="col-lg-8">
 
-    <p>Välj en stad för att se aktuellt väder och prognosen
-       för de kommande tre dagarna.</p>
+        <div class="card shadow-lg border-0 startkort">
+            <div class="card-body p-4 p-md-5 text-center">
 
-    <form action="{{ url_for('visa_väder') }}" method="get">
+                <div class="väderikon mb-3">☀️</div>
 
-        <label for="stad">Välj stad:</label>
+                <h1 class="fw-bold mb-3">Välkommen till Väderkollen!</h1>
 
-        <select name="stad" id="stad" required>
-            {% for stad in städer %}
-                <option value="{{ stad }}">{{ stad }}</option>
-            {% endfor %}
-        </select>
+                <p class="text-muted mb-4">
+                    Här kan du enkelt se vädret i fem svenska städer.
+                    Välj en stad för att få aktuell temperatur,
+                    vindhastighet och en prognos för tre dagar.
+                </p>
 
-        <button type="submit">Visa väder</button>
+                <form action="{{ url_for('visa_väder') }}" method="get">
 
-    </form>
-</section>
+                    <div class="mb-3 text-start">
+                        <label for="stad" class="form-label fw-semibold">
+                            Välj stad
+                        </label>
+
+                        <select name="stad" id="stad"
+                                class="form-select form-select-lg" required>
+
+                            {% for stad in städer %}
+                                <option value="{{ stad }}">{{ stad }}</option>
+                            {% endfor %}
+
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg w-100">
+                        Visa väderprognos
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
+
+        <div class="row mt-4 g-3 text-center">
+
+            <div class="col-md-4">
+                <div class="card info-kort h-100">
+                    <div class="card-body">
+                        <h4>🌡️</h4>
+                        <h6>Temperatur</h6>
+                        <p class="text-muted small mb-0">
+                            Se aktuell temperatur
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card info-kort h-100">
+                    <div class="card-body">
+                        <h4>💨</h4>
+                        <h6>Vind</h6>
+                        <p class="text-muted small mb-0">
+                            Se vindhastigheten
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card info-kort h-100">
+                    <div class="card-body">
+                        <h4>📅</h4>
+                        <h6>Prognos</h6>
+                        <p class="text-muted small mb-0">
+                            Se vädret i tre dagar
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
 
 {% endblock %}

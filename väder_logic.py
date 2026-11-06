@@ -12,6 +12,7 @@ STÄDER = [
 def kontrollera_stad(stad):
     return stad in STÄDER
 
+
 # Omvandlar väderdata till en lista med tre dagars prognos.
 def skapa_prognos(väderdata):
 
@@ -22,7 +23,6 @@ def skapa_prognos(väderdata):
 
     # Går igenom varje dag och samlar väderinformationen.
     for index in range(len(dagar["time"])):
-
         dag = {
             "datum": dagar["time"][index],
             "max_temp": dagar["temperature_2m_max"][index],

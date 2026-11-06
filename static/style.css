@@ -1,0 +1,67 @@
+
+body {
+    background-color: #eef4fb;
+    font-family: Arial, sans-serif;
+    color: #26364a;
+}
+
+.navbar {
+    background-color: #244b75;
+}
+
+.navbar-brand {
+    font-size: 23px;
+}
+
+.navbar-text {
+    color: #dceafa;
+}
+
+.startkort {
+    border-radius: 18px;
+    background-color: white;
+}
+
+.väderikon {
+    font-size: 55px;
+}
+
+.info-kort {
+    border: none;
+    border-radius: 14px;
+    background-color: white;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.info-kort h4 {
+    font-size: 28px;
+}
+
+.väderkort {
+    border-radius: 18px;
+}
+
+.väderruta {
+    background-color: #edf5ff;
+    border-radius: 15px;
+    height: 100%;
+}
+
+.väderruta h2 {
+    color: #244b75;
+}
+
+.btn-primary {
+    background-color: #244b75;
+    border-color: #244b75;
+}
+
+.btn-primary:hover {
+    background-color: #193958;
+    border-color: #193958;
+}
+
+footer {
+    color: #718096;
+    margin-top: 30px;
+}

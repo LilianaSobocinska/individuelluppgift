@@ -1,51 +1,89 @@
+
 {% extends "bas.html" %}
 
 {% block titel %}Väder i {{ stad }} | Väderkollen{% endblock %}
 
 {% block innehåll %}
 
-<section class="kort">
-    <h2>Vädret i {{ stad }}</h2>
+<div class="row justify-content-center">
+    <div class="col-lg-10">
 
-    <div class="aktuellt">
-        <p>Temperatur</p>
-        <h3>{{ aktuellt.temperature_2m | temperatur }}</h3>
+        <div class="card shadow border-0 väderkort">
 
-        <p>Vindhastighet</p>
-        <h3>{{ aktuellt.wind_speed_10m }} km/h</h3>
+            <div class="card-body p-4">
+
+                <div class="text-center mb-4">
+                    <p class="text-muted mb-1">Aktuellt väder</p>
+                    <h1 class="fw-bold">{{ stad }}</h1>
+                </div>
+
+                <div class="row g-3 mb-5">
+
+                    <div class="col-md-6">
+                        <div class="väderruta text-center p-4">
+                            <div class="fs-1">🌡️</div>
+                            <p class="text-muted mb-1">Temperatur</p>
+                            <h2 class="fw-bold">
+                                {{ aktuellt.temperature_2m | temperatur }}
+                            </h2>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="väderruta text-center p-4">
+                            <div class="fs-1">💨</div>
+                            <p class="text-muted mb-1">Vindhastighet</p>
+                            <h2 class="fw-bold">
+                                {{ aktuellt.wind_speed_10m }} km/h
+                            </h2>
+                        </div>
+                    </div>
+
+                </div>
+
+                <h3 class="fw-bold mb-3">Prognos för tre dagar</h3>
+
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle text-center">
+                        <thead class="table-primary">
+                            <tr>
+                                <th>Datum</th>
+                                <th>Max temperatur</th>
+                                <th>Min temperatur</th>
+                                <th>Nederbörd</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for dag in prognos %}
+                                <tr>
+                                    <td>{{ dag.datum }}</td>
+                                    <td>{{ dag.max_temp | temperatur }}</td>
+                                    <td>{{ dag.min_temp | temperatur }}</td>
+                                    <td>{{ dag.nederbörd }} mm</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                {% if prognos %}
+                    <p class="text-muted small mt-3">
+                        Prognosen visar vädret för {{ stad }}.
+                    </p>
+                {% endif %}
+
+                <div class="text-center mt-4">
+                    <a href="{{ url_for('index') }}"
+                       class="btn btn-outline-primary">
+                        ← Tillbaka till startsidan
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
     </div>
-
-    <h2>Prognos för tre dagar</h2>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Datum</th>
-                <th>Max</th>
-                <th>Min</th>
-                <th>Nederbörd</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            {% for dag in prognos %}
-                <tr>
-                    <td>{{ dag.datum }}</td>
-                    <td>{{ dag.max_temp | temperatur }}</td>
-                    <td>{{ dag.min_temp | temperatur }}</td>
-                    <td>{{ dag.nederbörd }} mm</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-    {% if prognos %}
-        <p class="info">Prognosen visar tre dagar för {{ stad }}.</p>
-    {% endif %}
-
-    <a href="{{ url_for('index') }}" class="länk">
-        Tillbaka till startsidan
-    </a>
-</section>
+</div>
 
 {% endblock %}

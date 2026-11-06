@@ -1,10 +1,9 @@
 # Importerar Flask-funktioner för att skapa webbappen och visa HTML-sidor.
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request
 
 # Importerar funktionerna som hämtar och bearbetar väderdata.
 from väder_api import VäderApiFel, hamta_väderdata
-from väder_logic import STÄDER, skapa_prognos, kontrollera_stad
-
+from väder_logic import STÄDER, kontrollera_stad, skapa_prognos
 
 # Skapar Flask-applikationen.
 app = Flask(__name__)
@@ -73,8 +72,7 @@ def visa_väder():
         return render_template(
             "fel.html",
             meddelande=(
-                "Väderinformationen är inte tillgänglig just nu. "
-                "Försök igen senare."
+                "Väderinformationen är inte tillgänglig just nu. Försök igen senare."
             ),
         ), 503
 
@@ -86,3 +84,8 @@ def sidan_hittas_inte(fel):
         "fel.html",
         meddelande="Sidan hittades inte.",
     ), 404
+
+
+# Startar webbservern när programmet körs direkt.
+if __name__ == "__main__":
+    app.run(debug=True)

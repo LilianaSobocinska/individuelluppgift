@@ -13,9 +13,11 @@ from väder_logic import kontrollera_stad, skapa_prognos
 def test_giltiga_städer(stad):
     assert kontrollera_stad(stad) is True
 
+
 # Testar att en stad som inte finns i listan avvisas.
 def test_ogiltig_stad():
     assert kontrollera_stad("Uppsala") is False
+
 
 # Testar att väderdata omvandlas till en prognos för tre dagar.
 def test_skapa_prognos():
