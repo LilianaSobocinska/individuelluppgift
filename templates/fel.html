@@ -1,0 +1,17 @@
+{% extends "bas.html" %}
+
+{% block titel %}Fel | Väderkollen{% endblock %}
+
+{% block innehåll %}
+
+<section class="kort">
+    <h2>Något gick fel</h2>
+
+    <p>{{ meddelande }}</p>
+
+    <a href="{{ url_for('index') }}" class="länk">
+        Tillbaka till startsidan
+    </a>
+</section>
+
+{% endblock %}

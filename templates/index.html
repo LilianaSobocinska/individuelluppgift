@@ -1,0 +1,28 @@
+{% extends "bas.html" %}
+
+{% block titel %}Välj stad | Väderkollen{% endblock %}
+
+{% block innehåll %}
+
+<section class="kort">
+    <h2>Välkommen till Väderkollen</h2>
+
+    <p>Välj en stad för att se aktuellt väder och prognosen
+       för de kommande tre dagarna.</p>
+
+    <form action="{{ url_for('visa_väder') }}" method="get">
+
+        <label for="stad">Välj stad:</label>
+
+        <select name="stad" id="stad" required>
+            {% for stad in städer %}
+                <option value="{{ stad }}">{{ stad }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Visa väder</button>
+
+    </form>
+</section>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block titel %}Väderkollen{% endblock %}</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>Väderkollen</h1>
+        <p>Din väderprognos på ett ställe</p>
+    </header>
+
+    <main>
+        {% block innehåll %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>Väderdata från Open-Meteo</p>
+    </footer>
+
+</body>
+</html>
