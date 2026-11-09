@@ -34,6 +34,7 @@ def skapa_prognos(väderdata):
 
     return prognos
 
+
 # Kontrollerar om en stad finns i listan över tillåtna städer.
 def ar_giltig_stad(stad):
     return stad in STÄDER
