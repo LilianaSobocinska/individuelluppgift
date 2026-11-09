@@ -71,7 +71,7 @@ För att köra alla tester använder man:
 python -m pytest -v
 ```
 
-Projektet innehåller 15 tester som kontrollerar bland annat startsidan, vädersidan, ogiltiga städer, API-fel och väderlogiken.
+Projektet innehåller 16 tester som kontrollerar bland annat startsidan, vädersidan, ogiltiga städer, API-fel, nätverksfel och väderlogiken. Alla 16 tester passerar.
 
 För att kontrollera koden med Ruff använder man:
 
@@ -96,6 +96,8 @@ individuelluppgift prog2/
 ├── requirements.txt
 ├── requirements-dev.txt
 ├── README.md
+├── pyproject.toml
+├── .gitignore
 │
 ├── static/
 │   └── style.css
@@ -145,6 +147,16 @@ Projektet använder Open-Meteo Forecast API:
 https://api.open-meteo.com/v1/forecast
 
 API:et används för att hämta aktuell temperatur, vindhastighet och väderprognos. Det behövs ingen API-nyckel.
+
+### Källa och licens
+
+Väderinformationen hämtas från Open-Meteo. API:ets väderdata omfattas av licensen Creative Commons Attribution 4.0 International (CC BY 4.0).
+
+Källa: [Open-Meteo](https://open-meteo.com/)
+
+Licens: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+Väderdata har hämtats och presenterats i webbapplikationen.
 
 ## Avslutning
 
