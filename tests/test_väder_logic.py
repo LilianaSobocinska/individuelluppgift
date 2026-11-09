@@ -41,3 +41,7 @@ def test_skapa_prognos():
     assert resultat[0]["max_temp"] == 8.5
     assert resultat[0]["min_temp"] == 3.0
     assert resultat[0]["nederbörd"] == 0.0
+
+def test_ar_giltig_stad():
+    assert ar_giltig_stad("Stockholm") is True
+    assert ar_giltig_stad("Uppsala") is False
