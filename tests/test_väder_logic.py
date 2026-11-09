@@ -2,7 +2,11 @@
 import pytest
 
 # Importerar funktionen som vi ska skapa.
-from väder_logic import kontrollera_stad, skapa_prognos
+from väder_logic import (
+    ar_giltig_stad,
+    kontrollera_stad,
+    skapa_prognos,
+)
 
 
 # Testar att de fem tillåtna städerna godkänns.
